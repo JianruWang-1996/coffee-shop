@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="detail.css" />
+    <title>Top Coffee</title>
+</head>
+<body>
+    <!--logo start-->
+    <div id="header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="./img/logo.jpg" alt="" >
+            </a>
+        </div>
+    </div>
+    <!--logo end-->
+
+    <!--navbar start-->
+    <ul class="nav">
+        <li><a href="">MENU</a>
+            <ul>
+               <li><a href="list_food.html">FOOD</a></li>
+                <li><a href="list_drink.html">DRINKS</a></li>
+            </ul>
+        </li>
+        <li><a href="list.html">Online　Order</a></li>
+        <li><a href="About us.html">About us</a></li>
+        <li><a href="Login.html">LOGIN</a></li>
+    </ul>
+    <!--navbar end-->
+
+
+    <!--contents start-->
+        <!--内容区 开始-->
+        <div id ="content">
+            <div class= "content">
+                <div class="detail">
+                     <h1>Order Details</h1>
+                    <div class="inner">
+                        <img style="height:300px; width:500px;" src="" />
+                        <h2></h2>
+                        <p>total price: <span id="totalPrice"></span></p>
+
+                    <input type="number" id="num" value="1" style="height:30px; width:50px; float:left; text-align: center;" />    
+                    </div>
+
+
+                </div>
+                
+                <div class="btns">
+                    <button id="cancel">Cancel</button>
+                    <button id="next">Next</button>
+                </div>
+
+            </div>
+        </div>
+        <!--内容区 结束-->
+    <!--contents end-->
+
+    <!--footer start-->
+	<footer id="red">
+	  <h1 class="text">© 2021 TOP Coffee Company</h1>
+	  <h2 class="text2">-DESIGNED BY-</h2>
+		<h2 class="text3">- Jianru Wang -</h2>
+    	<h2 class="text4">- Changhao Yu -</h2>
+    	<h2 class="text5">- Yuzhe Ge -</h2>
+        <h2 class="text5">- Junyuan Chen -</h2>
+
+	</footer>
+    <!--footer end-->
+
+</body>
+
+</html>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+    let name = window.localStorage.getItem("name")
+    let img = window.localStorage.getItem("img")
+    let price = window.localStorage.getItem("price")
+
+    $(".detail img").attr("src",img);
+    $(".detail h2").text(name)
+    $(".detail p>span").text(price)
+
+    $("#next").click(function () {
+        window.location.href = "form.html";
+    })
+
+    $("#cancel").click(function () {
+        window.location.href = "list.html";
+    });
+
+    $("#num").click(function(e) {
+        let num = $(this).val();
+        if(num <= 0) {
+            $(this).val(1);
+            num = 1;
+        }
+        $(".detail p>span").text("$" + num * price.replace('$',''))
+    });
+</script>

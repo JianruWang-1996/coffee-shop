@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./layui/css/layui.css" />
+    <link rel="stylesheet" href="form.css" />
+    <title>Top Coffee</title>
+</head>
+<body>
+    <!--logo start-->
+    <div id="header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="./img/logo.jpg" alt="" >
+            </a>
+        </div>
+    </div>
+    <!--logo end-->
+
+    <!--navbar start-->
+    <ul class="nav">
+        <li><a href="">MENU</a>
+            <ul>
+                <li><a href="list_food.html">FOOD</a></li>
+                <li><a href="list_drink.html">DRINKS</a></li>
+            </ul>
+        </li>
+        <li><a href="list.html">Online　Order</a></li>
+        <li><a href="About us.html">About us</a></li>
+        <li><a href="Login.html">LOGIN</a></li>
+    </ul>
+    <!--navbar end-->
+
+
+    <!--contents start-->
+        <!--内容区 开始-->
+        <div id ="content">
+            <div class= "content">
+                <div>
+                    <form class="layui-form" action="">
+                        <h1>Personal details</h1>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">Phone Number</label>
+                            <div class="layui-input-block">
+                                <input type="tel" name="phone" size="10" pattern="[\d\-]*" required autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">Email</label>
+                            <div class="layui-input-block">
+                                <input type="email" name="email"  required autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <button class="layui-btn" lay-submit lay-filter="formDemo">comform</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--内容区 结束-->
+    <!--contents end-->
+
+    <!--footer start-->
+	<footer id="red">
+	  	<h1 class="text">© 2021 TOP Coffee Company</h1>
+		<p>&nbsp;</p>
+	  	<h2 class="text2">-DESIGNED BY-</h2>
+		<p>&nbsp;</p>
+		<h2 class="text3">- Jianru Wang -</h2>
+		<p>&nbsp;</p>
+    	<h2 class="text4">- Changhao Yu -</h2>
+   	  <p>&nbsp;</p>
+	  <h2 class="text5">- Yuzhe Ge -</h2>
+		<p>&nbsp;</p>
+      <h2 class="text5">- Junyuan Chen -</h2>
+        <p>&nbsp;</p>
+    </footer>
+    <!--footer end-->
+
+</body>
+
+</html>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="./layui/layui.js"></script>
+<script type="text/javascript">
+    layui.use('form', function(){
+
+
+        $("input[name='email']").on('blur',function() {
+               let email = $("input[name='email']").val();
+                var reg = new RegExp("^.+@.+$");
+                if (!reg.test(email)) {
+                    $("input[name='email']").css("border","2px solid red");
+                    return
+                }else {
+                    $("input[name='email']").css("border","");
+                }
+        });
+
+        
+
+        $("form").on('submit',function (e) {
+            e.preventDefault();
+            layui.layer.open({
+                type: 1,
+                btn: ['Exit'],
+                btn1: function(index, layero){
+                    layui.layer.close(index);
+                    window.location.href = 'list.html';
+                },
+                title: "thanks",
+                area: ['500px', '300px'],
+                content: '<h1 style="margin-top:40px;" align="center">Order complete</h1><br/><h1 align="center">THANKS</h1>',
+            });
+        })
+
+    });
+
+    $(".add").on('click',function () {
+        window.location.href = 'detail.html';
+    })
+</script>

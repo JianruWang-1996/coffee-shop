@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="list.css" />
+    <title>Top Coffee</title>
+</head>
+<body>
+    <!--logo start-->
+    <div id="header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="./img/logo.jpg" alt="" >
+            </a>
+        </div>
+    </div>
+    <!--logo end-->
+
+    <!--navbar start-->
+    <ul class="nav">
+        <li><a href="">MENU</a>
+            <ul>
+               <li><a href="list_food.html">FOOD</a></li>
+                <li><a href="list_drink.html">DRINKS</a></li>
+            </ul>
+        </li>
+        <li><a href="list.html">Online　Order</a></li>
+        <li><a href="About us.html">About us</a></li>
+        <li><a href="Login.html">LOGIN</a></li>
+    </ul>
+    <!--navbar end-->
+
+
+    <!--contents start-->
+        <!--内容区 开始-->
+        <div id ="content">
+            <div class= "content">
+                <div class="left">
+                    <h1>drink</h1>
+                    <ul class="coffee-list">
+                        <li>
+                            <img src="./img/coffee/1.png" />
+                            <p>Robusta</p>
+                            <p>price: <span>$6.00</span></p>
+                            <a href="#" class="add">+</a>
+                        </li>
+
+                        <li>
+                            <img src="./img/coffee/2.png" />
+                            <p>Cold Brews</p>
+                            <p>price: <span>$8.00</span></p>
+                            <a href="#" class="add">+</a>
+                        </li>
+                    </ul>
+
+                    <ul class="coffee-list">
+                        <li>
+                            <img src="./img/coffee/3.png" />
+                            <p class="name">Americano</p>
+                            <p>price: <span>$9.00</span></p>
+                            <a href="#" class="add">+</a>
+                        </li>
+
+                        <li>
+                            <img src="./img/coffee/5.png" />
+                            <p class="name">Black tea</p>
+                            <p>price: <span>$7.00</span></p>
+                            <a href="#" class="add">+</a>
+                        </li>
+                    </ul>
+
+                    <ul class="coffee-list">
+                        <li>
+                            <img src="./img/coffee/6.png" />
+                            <p class="name">Ices Peach juice</p>
+                            <p>price: <span>$10.00</span></p>
+                            <a href="#" class="add">+</a>
+                        </li>
+
+                        <li>
+                            <img src="./img/coffee/4.png" />
+                            <p class="name">Chai tea</p>
+                            <p>price: <span>$9.00</span></p>
+                            <a href="#" class="add">+</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="right">
+                    <h1>food</h1>
+                    <ul class="coffee-list">
+                        <li>
+                            <img src="./img/food/1.png" />
+                            <p class="name">Bacon & egg sandwich</p>
+                            <p>price: <span>$22.00</span></p>
+                            <a href="#" class="add">+</a>
+                        </li>
+
+                        <li>
+                            <img src="./img/food/2.png" />
+                            <p class="name">Roasted ham & egg sandwich</p>
+                            <p>price: <span>$13.00</span></p>
+                            <a href="#" class="add">+</a>
+                        </li>
+                    </ul>
+
+                    <ul class="coffee-list">
+                        <li>
+                            <img src="./img/food/3.png" />
+                            <p class="name">Chocolate Brownie</p>
+                            <p>price: <span>$15.00</span></p>
+                            <a href="#" class="add">+</a>
+                        </li>
+
+                        <li>
+                            <img src="./img/food/4.png" />
+                            <p class="name">Blueberry cake</p>
+                            <p>price: <span>$16.00</span></p>
+                            <a href="#" class="add">+</a>
+                        </li>
+                    </ul>
+
+                    <ul class="coffee-list">
+                        <li>
+                            <img src="./img/food/5.png" />
+                            <p class="name">Cookie</p>
+                            <p>price: <span>$17.00</span></p>
+                            <a href="#" class="add">+</a>
+                        </li>
+
+                        <li>
+                            <img src="./img/food/6.png" />
+                            <p class="name">Muffin</p>
+                            <p>price: <span>$20.00</span></p>
+                            <a href="#" class="add">+</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--内容区 结束-->
+    <!--contents end-->
+
+    <!--footer start-->
+	<footer id="red">
+	  <h1 class="text">© 2021 TOP Coffee Company</h1>
+	  <h2 class="text2">-DESIGNED BY-</h2>
+		<h2 class="text3">- Jianru Wang -</h2>
+    	<h2 class="text4">- Changhao Yu -</h2>
+    	<h2 class="text5">- Yuzhe Ge -</h2>
+        <h2 class="text5">- Junyuan Chen -</h2>
+
+	</footer>
+    <!--footer end-->
+
+</body>
+
+</html>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+    $(".add").on('click',function () {
+        console.log($(this).parent())
+        let price = $(this).parent().find("p:eq(1)>span").text();
+        let name = $(this).parent().find("p:eq(0)").text();
+        let img = $(this).parent().find("img").attr("src");
+
+        window.localStorage.setItem('price',price);
+        window.localStorage.setItem('name',name);
+        window.localStorage.setItem('img',img);
+
+        window.location.href = './detail.html';
+    })
+</script>

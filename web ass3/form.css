@@ -1,0 +1,315 @@
+body,img,ul,li{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+    background: #99e379; /* Old browsers */
+	background: -moz-linear-gradient(left,  #99e379 0%, #7db9e8 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left,  #99e379 0%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right,  #99e379 0%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+#header{
+    width: 100%;
+    height: 200px;
+}
+
+.logo>a>img{
+    width: 300px;
+    height: 200px;
+    display: block;
+    margin: auto;
+}
+
+/* side-bar style start */
+#sidebar{
+    width: 100px;
+    height:450px;
+    position: fixed;
+    right: 0px;
+    top:calc(50% - 400px / 2);
+    border: 1px solid #f2d154;
+/*     丸い角 */
+    border-radius: 10px 0px 0px 10px;
+    z-index: 30;
+}
+#sidebar>p{
+    font-style: italic;
+    text-align: center;
+    font-size: 20px;
+/*     color:#f2d154; */
+    animation: bound-anim 1.5s infinite, color-change 3s linear infinite;
+}
+/* make bound */
+@keyframes bound-anim {
+	0% {
+        top: 0;transform: scale(1);
+    }
+	50% {
+        transform: scale(1.7);
+    }
+}
+/* color change */
+@keyframes color-change {
+    0%,100%{
+        color:#ff1493;
+    }
+    25%{
+        color:#8b4513;
+    }
+    50%{
+        color:#0091EA;
+    }
+    75%{
+        color:#9400d3;
+    }
+}
+#sidebar>div{
+    margin-top:18px;
+    text-align: center;
+    animation: poyoyon 3s infinite;
+    opacity: 1;
+}
+/* icon shake */
+@keyframes poyoyon {
+    0%, 40% {
+        transform: skew(0deg, 0deg);
+    }
+    5% {
+        transform: skew(5deg, 5deg);
+    }
+    10% {
+        transform: skew(-4deg, -4deg);
+    }
+    15% {
+        transform: skew(3deg, 3deg);
+    }
+    20% {
+        transform: skew(-2deg, -2deg);
+    }
+    25% {
+        transform: skew(1deg, 1deg);
+    }
+    30% {
+        transform: skew(-0.6deg, -0.6deg);
+    }
+    35% {
+        transform: skew(0.3deg, 0.3deg);
+    }
+}
+/* side-bar style end */
+
+/*navbar style start */
+.nav {
+    display: flex;
+    height: 2rem;
+    margin: 0 auto;
+    width: 1200px;
+}
+.nav > li {/*25%にする*/
+    width: 25%;
+}
+.nav li {
+    list-style: none;
+    position: relative;
+}
+.nav li a {
+    background: #001b34;
+    color: #fff;
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+}
+.nav li li {
+    height: 0;
+    overflow: hidden;
+    transition: .5s;
+    z-index: 20;
+}
+.nav li li a {
+    border-top: 1px solid #eee;
+}
+.nav li:hover > ul > li {
+    height: 50px;
+    overflow: visible;
+}
+/*navbar style end */
+
+
+/* content style start */
+#content{
+    width: 100%;
+    padding: 40px 0px;
+    padding: 40px 0px 80px;
+}
+.content{
+    width: 500px;
+    margin: 0 auto;
+}
+.layui-form-label {
+    width:600px;
+    text-align: center;
+    font-size:30px;
+}
+
+
+.content-top{
+    width: 1200px;
+    height:80px;
+    margin: 0 auto;
+}
+
+.content-top>div{
+    font-style: oblique;
+    font-size: 60px;
+    color:#D52023;;
+    margin-top: -100px;
+    margin-left: 400px;
+}
+
+.layui-form h1 {
+    text-align: center;
+    font-size:50px;
+    margin-bottom:40px;
+}
+
+/* マウスオーバー時に文字が回転 開始*/
+.content-top>div span{
+	display: inline-block;
+}
+.content-top>div span:hover{
+	animation: rotation_anim 2s linear infinite;
+}
+@keyframes rotation_anim {
+	100% {
+		transform: rotatey(360deg);
+	}
+}
+/* マウスオーバー時に文字が回転 終了*/
+.content-bottom{
+    width: 1200px;
+    height:535px;
+    margin:0 auto;
+}
+.content-bottom-left{
+    width: 315px;
+    height:535px;
+    float: left;
+}
+.content-bottom-left>iframe{
+    width: 538px;
+    height:535px;
+    float: left;
+}
+.content-bottom-right{
+    width: 880px;
+    height:540px;
+    float: right;
+}
+.content-bottom-right>div:last-child{
+    margin-top: 10px;
+}
+.content-bottom-right>div>div{
+    width: 327px;
+    height: 260px;
+/*     border: 1px solid #ccc; */
+    float: right;
+    margin-right: 3px;
+    margin-top: 5px;
+}
+.content-bottom-right>div>div>img{
+    animation: shake 0.7s linear infinite;
+    margin-top: 5px;
+    width: 320px;
+    height: 200px;
+}
+/* イメージがブルブル 開始*/
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    40% {
+        transform: translateX(-1%);
+    }
+    80% {
+        transform: translateX(1%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+/* イメージがブルブル 終了*/
+.content-bottom-right>div>div>p{
+    color:#D52023;;
+    margin: center;
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 1s;
+}
+/* マウスオーバー時に拡大表示 */
+.content-bottom-right>div>div>p:hover{
+    transform: scale(2);
+}
+
+/* content style end */
+
+
+/*footer start*/
+#red{ 
+    border-top: solid #A44B4B;
+    border-width: 15px;
+    position:absolute;
+    height:150px;
+    width:100%; 
+}
+
+.text {
+    color: #424242;
+    font-family: Lato;
+    font-size: 60px;
+    text-align: center;
+    margin-top: 20px;
+} 
+.text2 {
+    color: #424242;
+    font-family: Lato;
+    font-size: 35px;
+    text-align: center;
+    margin-top: -30px;
+}  
+.text3 {
+    color: #424242;
+    font-family: Lato;
+    font-size: 20px;
+    text-align: center;
+    margin-top: -20px;
+}  
+.text4 {
+    color: #424242;
+    font-family: Lato;
+    font-size: 20px;
+    text-align: center;
+    margin-top: -20px;
+}  
+.text5 {
+    color: #424242;
+    font-family: Lato;
+    font-size: 20px;
+    text-align: center;
+    margin-top: -20px;
+}  
+.text6 {
+    color: #424242;
+    font-family: Lato;
+    font-size: 20px;
+    text-align: center;
+    margin-top: -20px;
+}  
+#page-footer {
+    display: none !important;
+}
+/*footer end*/
+
